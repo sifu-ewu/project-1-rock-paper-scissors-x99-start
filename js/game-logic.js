@@ -47,8 +47,12 @@ function getRoundWinner(roundNumber) {
         return 'Player One';
     } else if (playerOneMoveOneType == 'rock' && playerTwoMoveOneType == 'paper') {
          return 'Player Two';
-    }
-    
+    }else if (playerOneMoveOneType == 'scissors' && playerTwoMoveOneType == 'paper') {
+        return 'Player Two';
+    } else if(playerOneMoveOneType == p) {                     
+
+
+
 }
 
 function getGameWinner () {
