@@ -19,7 +19,7 @@ function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType, moveTwoV
         (moveThreeType === 'rock' || moveThreeType === 'paper' || moveThreeType === 'scissors') &&
         (moveOneValue >= 1 && moveOneValue <= 99) &&
         (moveTwoValue >= 1 && moveTwoValue <= 99) &&
-        (moveThreeValue >= 1 && moveThreeValue <= 99)
+        (moveThreeValue >= 1 && moveThreeValue <= 99) && (moveOneValue + moveTwoValue + moveThreeValue <= 99)
     ) {
         if (player === 'Player One') {
             playerOneMoveOneType = moveOneType;
@@ -43,8 +43,12 @@ function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType, moveTwoV
 
 
 function getRoundWinner(roundNumber) {
+    if (playerOneMoveOneType == 'rock' && playerTwoMoveOneType == 'scissors') {
+        return 'Player One';
+    } else if (playerOneMoveOneType == 'rock' && playerTwoMoveOneType == 'paper') {
+         return 'Player Two';
+    }
     
-   
 }
 
 function getGameWinner () {
