@@ -51,7 +51,7 @@ function getRoundWinner(roundNumber) {
         return 'Player Two';
     } else if(playerOneMoveOneType == p) {                     
 
-
+    }
 
 }
 
