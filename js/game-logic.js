@@ -37,22 +37,53 @@ function setPlayerMoves(player, moveOneType, moveOneValue, moveTwoType, moveTwoV
             playerTwoMoveThreeValue = moveThreeValue;
         }
     } else {
-        return;
+        return 'Invalid Input';
     }
 }
 
 
 function getRoundWinner(roundNumber) {
-    if (playerOneMoveOneType == 'rock' && playerTwoMoveOneType == 'scissors') {
-        return 'Player One';
-    } else if (playerOneMoveOneType == 'rock' && playerTwoMoveOneType == 'paper') {
-         return 'Player Two';
-    }else if (playerOneMoveOneType == 'scissors' && playerTwoMoveOneType == 'paper') {
-        return 'Player Two';
-    } else if(playerOneMoveOneType == p) {                     
+    let playerOneMoveType, playerOneMoveValue, playerTwoMoveType, playerTwoMoveValue;
 
+    if (roundNumber === 1) {
+        playerOneMoveType = playerOneMoveOneType;
+        playerOneMoveValue = playerOneMoveOneValue;
+        playerTwoMoveType = playerTwoMoveOneType;
+        playerTwoMoveValue = playerTwoMoveOneValue;
+    } else if (roundNumber === 2) {
+        playerOneMoveType = playerOneMoveTwoType;
+        playerOneMoveValue = playerOneMoveTwoValue;
+        playerTwoMoveType = playerTwoMoveTwoType;
+        playerTwoMoveValue = playerTwoMoveTwoValue;
+    } else if (roundNumber === 3) {
+        playerOneMoveType = playerOneMoveThreeType;
+        playerOneMoveValue = playerOneMoveThreeValue;
+        playerTwoMoveType = playerTwoMoveThreeType;
+        playerTwoMoveValue = playerTwoMoveThreeValue;
     }
 
+    if (playerOneMoveType === 'rock' && playerTwoMoveType ==='scissors') {
+        return 'Player One';
+    } else if (playerOneMoveType === 'rock' && playerTwoMoveType === 'paper') {
+        return 'Player Two';
+    } else if (playerOneMoveType === 'scissors' && playerTwoMoveType === 'paper') {
+        return 'Player One';
+    } else if (playerOneMoveType === 'paper' && playerTwoMoveType === 'rock') {
+        return 'Player One';
+    }else if (playerOneMoveType === 'scissors' && playerTwoMoveType === 'rock') {
+        return 'Player Two';
+    } else if (playerOneMoveType === 'paper' && playerTwoMoveType === 'scissors') {
+        return 'Player Two';
+
+    }else if (playerOneMoveType === playerTwoMoveType) {
+        if (playerOneMoveValue > playerTwoMoveValue) {
+            return 'Player One';
+        } else if (playerOneMoveValue < playerTwoMoveValue) {
+            return 'Player Two';
+        } else {
+            return 'Tie';
+        }
+    }
 }
 
 function getGameWinner () {
