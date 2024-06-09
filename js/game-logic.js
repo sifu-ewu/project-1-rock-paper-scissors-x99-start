@@ -61,6 +61,7 @@ function getRoundWinner(roundNumber) {
         playerTwoMoveType = playerTwoMoveThreeType;
         playerTwoMoveValue = playerTwoMoveThreeValue;
     }
+    if (playerOneMoveType && playerTwoMoveType && playerOneMoveValue && playerTwoMoveValue && roundNumber > 0 && roundNumber < 4) {
 
     if (playerOneMoveType === 'rock' && playerTwoMoveType ==='scissors') {
         return 'Player One';
@@ -84,10 +85,31 @@ function getRoundWinner(roundNumber) {
             return 'Tie';
         }
     }
+} else {
+    return null;
+}
 }
 
 function getGameWinner () {
     // Placeholder code, replace with actual implementation
+    let playerOneWins = 0;
+    let playerTwoWins = 0;
+  for (let i = 1; i <= 3; i++) {
+   
+    if ( getRoundWinner(i) === 'Player One') {
+      playerOneWins += 1;
+    } else if ( getRoundWinner(i) === 'Player Two') {
+      playerTwoWins += 1;
+    }
+  }
+  if (playerOneWins > playerTwoWins) {
+    return 'Player One';
+  } else if (playerOneWins < playerTwoWins) {
+    return 'Player Two';
+  } else {
+    return 'Tie';           
+  }
+
    
 }
 
