@@ -149,5 +149,17 @@ function getGameWinner() {
 }
 
 function setComputerMoves() {
+    let validMoves = ["rock", "paper", "scissors"];
+    playerTwoMoveOneType = validMoves[Math.floor(Math.random() * validMoves.length)]
+    playerTwoMoveTwoType = validMoves[Math.floor(Math.random() * validMoves.length)]
+    playerTwoMoveThreeType = validMoves[Math.floor(Math.random() * validMoves.length)]
+
+    playerTwoMoveOneValue = Math.floor(Math.random() * 100)
+    let remainingTwo = (100 - playerTwoMoveOneValue) ;
+    playerTwoMoveTwoValue = Math.floor(Math.random() * remainingTwo)
+    let remainingThree = (99 - playerTwoMoveOneValue - playerTwoMoveTwoValue);
+    playerTwoMoveThreeValue = remainingThree
     
 }
+
+
